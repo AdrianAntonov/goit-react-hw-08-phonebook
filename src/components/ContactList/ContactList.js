@@ -22,6 +22,7 @@ export class ContactList extends Component {
               <span>{item.name}</span>
               <span>{item.number}</span>
               <button
+                type="button"
                 className={styles.button}
                 onClick={() => this.deleteItem(item.id)}
               >
