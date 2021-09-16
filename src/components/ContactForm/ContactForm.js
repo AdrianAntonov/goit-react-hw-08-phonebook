@@ -15,6 +15,7 @@ class ContactForm extends Component {
   reset = () => {
     this.setState({ name: "", number: "" });
   };
+
   changeHandler = (e) => {
     const { name, value } = e.target;
     this.setState({
