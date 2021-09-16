@@ -73,10 +73,12 @@ class App extends Component {
         <ContactForm contactAdding={this.contactAdding} />
         <h2>Contacts</h2>
         <Filter filter={this.handleFilter} />
-        <ContactList
-          contactList={showFilteredContacts}
-          deleteContact={this.deleteContact}
-        />
+        {this.state.contacts && (
+          <ContactList
+            contactList={showFilteredContacts}
+            deleteContact={this.deleteContact}
+          />
+        )}
       </div>
     );
   }
