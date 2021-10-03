@@ -1,67 +1,72 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./ContactForm.module.css";
 
-class ContactForm extends Component {
-  static propTypes = {
-    contactAdding: PropTypes.func,
+function ContactForm({ contactAdding }) {
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+
+  const reset = () => {
+    setName("");
+    setNumber("");
   };
 
-  state = {
-    name: "",
-    number: "",
+  const changeHandler = (e) => {
+    const targetName = e.target.name;
+    const targetValue = e.target.value;
+    switch (targetName) {
+      case "name":
+        setName(targetValue);
+        break;
+      case "number":
+        setNumber(targetValue);
+        break;
+      default:
+        return;
+    }
   };
 
-  reset = () => {
-    this.setState({ name: "", number: "" });
-  };
-
-  changeHandler = (e) => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  submitHandler = (e) => {
-    const { name, number } = this.state;
-    const { contactAdding } = this.props;
+  const submitHandler = (e) => {
     e.preventDefault();
     contactAdding(name, number);
-    this.reset();
+    reset();
   };
-  render() {
-    return (
-      <div className={styles.form}>
-        <h3>Name</h3>
-        <form onSubmit={this.submitHandler}>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            required
-            onChange={this.changeHandler}
-          />
 
-          <h3>Number</h3>
-          <input
-            type="tel"
-            name="number"
-            value={this.state.number}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-            required
-            onChange={this.changeHandler}
-          />
-          <br />
-          <button className={styles.butt} type="submit">
-            Add contact
-          </button>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div className={styles.form}>
+      <h3>Name</h3>
+      <form onSubmit={submitHandler}>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
+          onChange={changeHandler}
+        />
+
+        <h3>Number</h3>
+        <input
+          type="tel"
+          name="number"
+          value={number}
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+          required
+          onChange={changeHandler}
+        />
+        <br />
+        <button className={styles.add} type="submit">
+          Add contact
+        </button>
+      </form>
+    </div>
+  );
 }
+
+ContactForm.propTypes = {
+  contactAdding: PropTypes.func,
+};
+
 export default ContactForm;
