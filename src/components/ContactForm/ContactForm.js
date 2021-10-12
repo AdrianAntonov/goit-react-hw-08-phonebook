@@ -12,14 +12,16 @@ function ContactForm({ contactAdding }) {
   };
 
   const changeHandler = (e) => {
-    const targetName = e.target.name;
-    const targetValue = e.target.value;
-    switch (targetName) {
+    // const targetName = e.target.name;
+    // const targetValue = e.target.value;
+    const { name, value } = e.target;
+
+    switch (name) {
       case "name":
-        setName(targetValue);
+        setName(value);
         break;
       case "number":
-        setNumber(targetValue);
+        setNumber(value);
         break;
       default:
         return;
