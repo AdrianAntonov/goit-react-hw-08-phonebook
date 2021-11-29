@@ -1,12 +1,10 @@
 import { useState } from "react";
-// import PropTypes from "prop-types";
-// import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { items } from "../../redux/phonebook/phonebook-selectors";
 import * as phonebookOperations from "../../redux/phonebook/phonebook-operations";
 import styles from "./ContactForm.module.css";
 
-// function ContactForm({ contactAdding }) {
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -31,12 +29,6 @@ export default function ContactForm() {
         return;
     }
   };
-
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   contactAdding(name, number);
-  //   reset();
-  // };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -85,13 +77,7 @@ export default function ContactForm() {
   );
 }
 
-// ContactForm.propTypes = {
-//   contactAdding: PropTypes.func,
-// };
-
-// const mapDispatchToProps = (dispatch) => ({
-//   contactAdding: (name, number) =>
-//     dispatch(phonebookActions.addingContact(name, number)),
-// });
-
-// export default connect(null, mapDispatchToProps)(ContactForm);
+ContactForm.propTypes = {
+  addingContact: PropTypes.func,
+  items: PropTypes.array,
+};

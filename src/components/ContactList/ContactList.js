@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-// import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { contactsState } from "../../redux/phonebook/phonebook-selectors";
 import * as phonebookOperations from "../../redux/phonebook/phonebook-operations";
@@ -14,14 +13,6 @@ export default function ContactList() {
   }, [dispatch]);
 
   const contactList = useSelector(contactsState);
-
-  // const contactList = useSelector((state) => {
-  //   const filterToLowerCase = state.contacts.filter.toLowerCase();
-
-  //   return state.contacts.items.filter(({ name }) =>
-  //     name.toLowerCase().includes(filterToLowerCase)
-  //   );
-  // });
 
   return (
     <div className={styles.list}>
@@ -45,23 +36,3 @@ ContactList.propTypes = {
   deleteContact: PropTypes.func,
   contactList: PropTypes.array,
 };
-
-// const getFilteredContacts = (items, filter) => {
-//   const filterToLowerCase = filter.toLowerCase();
-//   return items.filter(({ name }) =>
-//     name.toLowerCase().includes(filterToLowerCase)
-//   );
-// };
-
-// const mapStateToProps = (state) => {
-//   const { items, filter } = state.contacts;
-//   const filteredContacts = getFilteredContacts(items, filter);
-
-//   return { contactList: filteredContacts };
-// };
-
-// const mapDispatchToProps = (dispatch) => ({
-//   deleteContact: (id) => dispatch(phonebookActions.deletingContact(id)),
-// });
-
-// export default connect(mapStateToProps,mapDispatchToProps)(ContactList);

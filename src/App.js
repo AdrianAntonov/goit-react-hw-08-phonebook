@@ -1,4 +1,3 @@
-// import { connect } from "react-redux";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import ContactForm from "./components/ContactForm";
@@ -23,9 +22,3 @@ export default function App() {
 App.propTypes = {
   contacts: PropTypes.object,
 };
-
-// const mapStateToProps = (state) => ({
-//   contacts: state.contacts.items,
-// });
-
-// export default connect(mapStateToProps)(App);
