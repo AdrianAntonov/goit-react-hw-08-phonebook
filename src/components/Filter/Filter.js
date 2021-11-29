@@ -1,12 +1,13 @@
 // import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
-import * as phonebookActions from "../../redux/phonebook/phonebook-actions";
 import PropTypes from "prop-types";
+import * as phonebookActions from "../../redux/phonebook/phonebook-actions";
+import { filter } from "../../redux/phonebook/phonebook-selectors";
 import styles from "./Filter.module.css";
 
 // function Filter({ value, onChange }) {
 export default function Filter() {
-  const value = useSelector((state) => state.contacts.filter);
+  const value = useSelector(filter);
   const dispatch = useDispatch();
 
   return (

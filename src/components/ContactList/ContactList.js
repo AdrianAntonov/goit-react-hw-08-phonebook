@@ -1,35 +1,37 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 // import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
-import * as phonebookActions from "../../redux/phonebook/phonebook-actions";
+import { contactsState } from "../../redux/phonebook/phonebook-selectors";
+import * as phonebookOperations from "../../redux/phonebook/phonebook-operations";
 import styles from "./ContactList.module.css";
 
 export default function ContactList() {
-  // function ContactList({ deleteContact, contactList }) {
-  const contactList = useSelector((state) => {
-    const filterToLowerCase = state.contacts.filter.toLowerCase();
-
-    return state.contacts.items.filter(({ name }) =>
-      name.toLowerCase().includes(filterToLowerCase)
-    );
-  });
-
   const dispatch = useDispatch();
 
-  // const deleteItem = (id) => {
-  //   deleteContact(id);
-  // };
+  useEffect(() => {
+    dispatch(phonebookOperations.fetchContacts());
+  }, [dispatch]);
+
+  const contactList = useSelector(contactsState);
+
+  // const contactList = useSelector((state) => {
+  //   const filterToLowerCase = state.contacts.filter.toLowerCase();
+
+  //   return state.contacts.items.filter(({ name }) =>
+  //     name.toLowerCase().includes(filterToLowerCase)
+  //   );
+  // });
 
   return (
     <div className={styles.list}>
       {contactList.map((item) => (
         <li key={item.id}>
-          <span>{item.name}</span> <span>{item.number}</span>
+          <span>{item.name}</span> <span>{item.phone}</span>
           <button
             type="button"
             className={styles.button}
-            // onClick={() => deleteItem(item.id)}
-            onClick={() => dispatch(phonebookActions.deletingContact(item.id))}
+            onClick={() => dispatch(phonebookOperations.deleteContact(item.id))}
           >
             Delete
           </button>

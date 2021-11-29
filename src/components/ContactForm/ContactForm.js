@@ -1,18 +1,20 @@
 import { useState } from "react";
 // import PropTypes from "prop-types";
 // import { connect } from "react-redux";
-import { useDispatch } from "react-redux";
-import * as phonebookActions from "../../redux/phonebook/phonebook-actions";
+import { useSelector, useDispatch } from "react-redux";
+import { items } from "../../redux/phonebook/phonebook-selectors";
+import * as phonebookOperations from "../../redux/phonebook/phonebook-operations";
 import styles from "./ContactForm.module.css";
 
 // function ContactForm({ contactAdding }) {
 export default function ContactForm() {
   const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [phone, setPhone] = useState("");
+  const contactsItems = useSelector(items);
   const dispatch = useDispatch();
   const reset = () => {
     setName("");
-    setNumber("");
+    setPhone("");
   };
 
   const changeHandler = (e) => {
@@ -22,8 +24,8 @@ export default function ContactForm() {
       case "name":
         setName(value);
         break;
-      case "number":
-        setNumber(value);
+      case "phone":
+        setPhone(value);
         break;
       default:
         return;
@@ -38,7 +40,15 @@ export default function ContactForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(phonebookActions.addingContact(name, number));
+    console.log(contactsItems);
+    const check = contactsItems.find((item) => item.name === name);
+    if (check) {
+      alert(`${name} is already in Contacts`);
+      reset();
+      return;
+    } else {
+      dispatch(phonebookOperations.addingContact({ name, phone }));
+    }
     reset();
   };
 
@@ -59,8 +69,8 @@ export default function ContactForm() {
         <h3>Number</h3>
         <input
           type="tel"
-          name="number"
-          value={number}
+          name="phone"
+          value={phone}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
