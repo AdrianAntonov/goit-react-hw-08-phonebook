@@ -7,12 +7,12 @@ import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [number, setNumber] = useState("");
   const contactsItems = useSelector(items);
   const dispatch = useDispatch();
   const reset = () => {
     setName("");
-    setPhone("");
+    setNumber("");
   };
 
   const changeHandler = (e) => {
@@ -22,8 +22,8 @@ export default function ContactForm() {
       case "name":
         setName(value);
         break;
-      case "phone":
-        setPhone(value);
+      case "number":
+        setNumber(value);
         break;
       default:
         return;
@@ -32,14 +32,14 @@ export default function ContactForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(contactsItems);
+    // console.log(contactsItems);
     const check = contactsItems.find((item) => item.name === name);
     if (check) {
       alert(`${name} is already in Contacts`);
       reset();
       return;
     } else {
-      dispatch(phonebookOperations.addingContact({ name, phone }));
+      dispatch(phonebookOperations.addingContact({ name, number }));
     }
     reset();
   };
@@ -61,8 +61,8 @@ export default function ContactForm() {
         <h3>Number</h3>
         <input
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required

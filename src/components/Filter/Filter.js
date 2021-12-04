@@ -7,6 +7,7 @@ import styles from "./Filter.module.css";
 
 export default function Filter() {
   const value = useSelector(filter);
+  // const contacts = useSelector(items);
   const dispatch = useDispatch();
 
   return (
