@@ -31,7 +31,7 @@ export default function AuthNav() {
         style={styles.link}
         // activeStyle={styles.activeLink}
       >
-        Login
+        Log in
       </NavLink>
     </div>
   );

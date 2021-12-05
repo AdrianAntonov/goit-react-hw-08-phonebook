@@ -2,7 +2,8 @@ import React from "react";
 
 const styles = {
   container: {
-    minHeight: "calc(100vh - 50px)",
+    minHeight: "calc(100vh - 250px)",
+    // minHeight: "700px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -18,9 +19,9 @@ const Home = () => (
   <div style={styles.container}>
     <h1 style={styles.title}>
       Welcome on the page of our service{" "}
-      <span role="img" aria-label="Иконка приветствия">
+      {/* <span role="img" aria-label="Иконка приветствия">
         💁‍♀️
-      </span>
+      </span> */}
     </h1>
   </div>
 );

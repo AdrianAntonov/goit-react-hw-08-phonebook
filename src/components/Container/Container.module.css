@@ -1,7 +1,25 @@
 .container {
-  max-width: 1440px;
+  max-width: 740px;
+  /* min-height: calc(100vh - 250px); */
+  height: 460px;
+
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+  border: 1px solid black;
+  /* background: #1cd8d2; 
+  background: -webkit-linear-gradient(
+    to bottom,
+    #93edc7,
+    #1cd8d2
+  ); 
+  background: linear-gradient(
+    to bottom,
+    #93edc7,
+    #1cd8d2
+  );  */
+  /* background: #1cd8d254; */
+  background: linear-gradient(to right, #cfdef385, #e0eafc85);
 }
