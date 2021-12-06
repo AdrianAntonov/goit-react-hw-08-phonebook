@@ -3,6 +3,7 @@
   margin: 0px;
   padding: 0px;
 }
+
 body {
   font-size: 18px;
   /* display: flex;
@@ -28,5 +29,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  backdrop-filter: blur(3px);
+  /* -webkit-filter: blur(8px); */
   /* background-position: top; */
+  /* z-index: -1; */
 }

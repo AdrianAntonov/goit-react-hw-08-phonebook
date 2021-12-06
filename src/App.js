@@ -26,22 +26,16 @@ export default function App() {
   return (
     <Container>
       <NavBar />
-
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/" element={<PublicRoute component={Home} />} />
-        {/* <Route path="/register" element={<Register />} /> */}
         <Route
           path="/register"
           element={<PublicRoute component={Register} restricted />}
         />
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route
           path="/login"
           element={<PublicRoute component={Login} restricted />}
         />
-        {/* <Route path="/contacts" element={<ContactForm />} /> */}
-        {/* <Route path="/contacts" element={<ContactsView />} /> */}
         <Route
           path="/contacts"
           element={<PrivateRoute component={ContactsView} />}

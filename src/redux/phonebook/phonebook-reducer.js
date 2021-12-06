@@ -56,6 +56,11 @@ const contactsSlice = createSlice({
         // loading: false,
       };
     },
+    // [fetchContacts.fulfilled](state, action) {
+    //   // console.log(action);
+    //   state.items = action.payload;
+    // },
+
     // [fetchContacts.pending]: (state) => {
     //   return {
     //     ...state,
@@ -76,6 +81,14 @@ const contactsSlice = createSlice({
         // loading: false,
       };
     },
+
+    // [addingContact.fulfilled](state, action) {
+    //   console.log(action.payload);
+    //   state.items.push(action.payload);
+
+    //   // state.items = action.payload;
+    // },
+
     // [addingContact.pending]: (state) => {
     //   return {
     //     ...state,
@@ -93,7 +106,7 @@ const contactsSlice = createSlice({
       console.log(payload);
       return {
         ...state,
-        items: state.items.filter(({ id }) => id !== payload.id),
+        items: state.items.filter(({ id }) => id !== payload),
         // loading: false,
       };
     },

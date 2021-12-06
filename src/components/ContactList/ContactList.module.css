@@ -1,6 +1,17 @@
 .list {
   margin-top: 1.2rem;
+  /* list-style: none; */
+  /* width: 50%;
+  border: 1px solid grey;
+  background-color: red; */
 }
+.listItem {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
 .button {
   background-color: #fff;
   margin-left: 2rem;

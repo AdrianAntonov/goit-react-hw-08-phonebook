@@ -18,16 +18,23 @@ export default function ContactList() {
     <div className={styles.list}>
       {contactList.length > 0 && <Filter />}
       {contactList.map((item) => (
-        <li key={item.id}>
-          <span>{item.name}</span> <span>{item.number}</span>
-          <button
-            type="button"
-            className={styles.button}
-            onClick={() => dispatch(phonebookOperations.deleteContact(item.id))}
-          >
-            Delete
-          </button>
-        </li>
+        <ol>
+          <li key={item.id} className={styles.listItem}>
+            <span>
+              {item.name}
+              <span>{item.number}</span>
+            </span>
+            <button
+              type="button"
+              className={styles.button}
+              onClick={() =>
+                dispatch(phonebookOperations.deleteContact(item.id))
+              }
+            >
+              Delete
+            </button>
+          </li>
+        </ol>
       ))}
     </div>
   );
