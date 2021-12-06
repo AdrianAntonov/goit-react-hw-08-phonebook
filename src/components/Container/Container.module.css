@@ -1,26 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 18px;
+  color: #005b5c;
+  background-image: url(../../images/jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
 .container {
   max-width: 740px;
   min-height: calc(100vh - 150px);
-  /* height: 460px */
-
-  /* margin-top: 50px; */
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  /* border: 1px solid black; */
-  /* background: #1cd8d2; 
-  background: -webkit-linear-gradient(
-    to bottom,
-    #93edc7,
-    #1cd8d2
-  ); 
-  background: linear-gradient(
-    to bottom,
-    #93edc7,
-    #1cd8d2
-  );  */
-  /* background: #1cd8d254; */
   background: linear-gradient(to right, #cfdef385, #e0eafc85);
-  /* z-index: 5; */
 }

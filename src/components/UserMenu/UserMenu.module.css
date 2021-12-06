@@ -8,15 +8,12 @@
   margin-right: 12px;
 }
 .email {
-  color: red;
+  color: #e67e22;
 }
 
 .userButton {
   border-radius: 10px;
-  /* padding-right: 5px;
-  padding-left: 5px; */
   padding: 2px 5px;
-  background-color: #e67e22;
   font-size: 16px;
   cursor: pointer;
 }

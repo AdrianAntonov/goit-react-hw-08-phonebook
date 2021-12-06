@@ -1,4 +1,3 @@
-// import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import * as phonebookActions from "../../redux/phonebook/phonebook-actions";
@@ -7,7 +6,6 @@ import styles from "./Filter.module.css";
 
 export default function Filter() {
   const value = useSelector(filter);
-  // const contacts = useSelector(items);
   const dispatch = useDispatch();
 
   return (

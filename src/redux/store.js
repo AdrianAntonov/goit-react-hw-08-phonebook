@@ -13,7 +13,6 @@ import storage from "redux-persist/lib/storage";
 
 import logger from "redux-logger";
 import phonebookReducer from "./phonebook/phonebook-reducer";
-// import { authReducer } from './auth';
 import authReducer from "./auth/auth-slice";
 
 const authPersistConfig = {
@@ -38,5 +37,4 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === "development",
 });
 
-// export default store;
 export const persistor = persistStore(store);

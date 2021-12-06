@@ -1,11 +1,7 @@
 .image {
-  /* background-image: url(../src/services/jeshoots-com-pUAM5hPaCRI-unsplash.jpg); */
   background-image: url(./services/jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   filter: blur(3px);
-  /* -webkit-filter: blur(8px); */
-  /* background-position: top; */
-  z-index: 0;
 }

@@ -32,7 +32,6 @@ export default function ContactForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // console.log(contactsItems);
     const check = contactsItems.find((item) => item.name === name);
     if (check) {
       alert(`${name} is already in Contacts`);

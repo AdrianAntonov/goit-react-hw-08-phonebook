@@ -1,29 +1,34 @@
 .list {
   margin-top: 1.2rem;
-  /* list-style: none; */
-  /* width: 50%;
-  border: 1px solid grey;
-  background-color: red; */
+  list-style: none;
 }
+
 .listItem {
   height: 30px;
   display: flex;
   justify-content: space-between;
   width: 50%;
+  color: #000;
 }
 
 .button {
-  background-color: #fff;
   margin-left: 2rem;
   margin-bottom: 5px;
-  padding: 0px;
+  padding: 0px 6px;
   border-radius: 4px;
+  outline: none;
   cursor: pointer;
-  transition: all 0.2s;
-  font-weight: 700;
-  border-color: rgb(207, 204, 204);
+  transition: all 0.3s;
+}
+.button:active {
+  background-color: #f70a84;
 }
 
-.button:active {
-  background-color: rgb(212, 4, 4);
+.button:hover {
+  background-color: #e00d7a;
+  color: white;
+}
+
+.number {
+  margin-left: 30px;
 }
