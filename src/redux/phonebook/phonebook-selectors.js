@@ -8,10 +8,11 @@ export const contactsState = createSelector(
   (items, filter) => {
     const contactList = (items) => {
       const filterToLowerCase = filter.toLowerCase();
-
-      return items.filter(({ name }) =>
+      const filteredItems = items.filter(({ name }) =>
         name.toLowerCase().includes(filterToLowerCase)
       );
+
+      return (items = filteredItems);
     };
     return contactList(items);
   }

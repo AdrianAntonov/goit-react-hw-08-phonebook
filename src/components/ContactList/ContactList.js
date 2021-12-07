@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { contactsState } from "../../redux/phonebook/phonebook-selectors";
+import {
+  contactsState,
+  items,
+} from "../../redux/phonebook/phonebook-selectors";
 import * as phonebookOperations from "../../redux/phonebook/phonebook-operations";
 import styles from "./ContactList.module.css";
 import Filter from "../Filter/Filter";
@@ -9,6 +12,7 @@ import Filter from "../Filter/Filter";
 export default function ContactList() {
   const dispatch = useDispatch();
   const contactList = useSelector(contactsState);
+  const listedItems = useSelector(items);
 
   useEffect(() => {
     dispatch(phonebookOperations.fetchContacts());
@@ -16,7 +20,11 @@ export default function ContactList() {
 
   return (
     <div className={styles.list}>
-      {contactList.length > 0 && <Filter />}
+      {listedItems.length > 0 ? (
+        <Filter />
+      ) : (
+        <h3>There are no contacts in your phonebook</h3>
+      )}
       {contactList.map((item) => (
         <li key={item.id} className={styles.listItem}>
           <span>
